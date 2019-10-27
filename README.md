@@ -1,4 +1,6 @@
 # ENPM808X- ROS Beginner tutorials (Publisher/Subscriber)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](LICENSE.md)
+
 
 ## Standard install via command-line
 ```
