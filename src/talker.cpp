@@ -1,3 +1,9 @@
+/**@copyright  MIT License (c) 2019 Shantam Bajpai
+ * @file        main.cpp
+ * @author      Arpit Aggarwal, Shantam Bajpai
+ * @brief       Implementation for main(Robot) class.
+ */
+
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
