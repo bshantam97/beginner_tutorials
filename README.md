@@ -8,6 +8,7 @@ cd ~/catkin_ws/src
 mkdir beginner_tutorials
 cd beginner_tutorials
 git clone --recursive https://github.com/bshantam97/beginner_tutorials.git
+cd ../..
 catkin_make 
 
 ```
