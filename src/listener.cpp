@@ -1,6 +1,6 @@
 /**@copyright  MIT License (c) 2019 Shantam Bajpai
  * @file        main.cpp
- * @author      Arpit Aggarwal, Shantam Bajpai
+ * @author      Shantam Bajpai
  * @brief       Implementation for main(Robot) class.
  */
 
