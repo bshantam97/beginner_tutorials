@@ -1,0 +1,6 @@
+Done processing ./listener.cpp
+./talker.cpp:9:  Found C++ system header after other header. Should be: talker.h, c system, c++ system, other.  [build/include_order] [4]
+./talker.cpp:30:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+Done processing ./talker.cpp
+Total errors found: 2
+
