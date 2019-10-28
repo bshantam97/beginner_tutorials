@@ -1,6 +1,8 @@
 # ENPM808X- ROS Beginner tutorials (Publisher/Subscriber)
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](LICENSE.md)
 
+## Dependencies
+[![ROS Kinetic Installation](https://img.shields.io/badge/ROSKinetic-Clickhere-brightgreen.svg?style=flat)](http://wiki.ros.org/kinetic/Installation)
 
 ## Standard install via command-line
 ```
