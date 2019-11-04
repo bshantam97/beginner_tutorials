@@ -4,6 +4,11 @@
  * @brief       Implementation for declaring a string
  */
 
-#include<sstream>
+#ifndef INCLUDE_CHANGESTRING_HPP_
+#define INCLUDE_CHANGESTRING_HPP_
+
+#include<std_msgs/String.h>
 
 std::string stringChange("My name is Shantam(Before string change)");
+
+#endif /*INCLUDE_CHANGESTRING_HPP_*/

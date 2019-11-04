@@ -6,10 +6,9 @@
 
 /*Include header files.....................................................*/
 #include <beginner_tutorials/Change_String.h>
+#include <sstream>
 #include "changeString.hpp"
 #include "ros/ros.h"
-#include "std_msgs/String.h"
-
 /*
  * @brief: This is a boolean function that is used to change the string values
  * @param: srv::Request- The request part of the srv folder
@@ -34,7 +33,7 @@ int main(int argc, char** argv) {
   int freq = 20;
   // Initialize counter
   int count = 0;
-  // Inputs the frequency if the argument counter is greater than zero
+  // Inputs the frequency
   freq = atoi(argv[1]);
   ROS_DEBUG_STREAM("The frequency has been set" << freq);
   // Check for negative input frequency
