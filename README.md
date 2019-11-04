@@ -14,23 +14,21 @@ cd ../..
 catkin_make 
 
 ```
-Open 3 terminals, the first to initialize the master node, the second for the talker node and the third for the listener node
-
-## Terminal 1
+## Using launch files to change the frequency of output messages
+### Using roslaunch without any argument
+After following the directions above follow the directions to run using roslaunch below
 ```
-roscore
-```
-
-## Terminal 2
-```
-cd ~/catkin_ws/
 source ./devel/setup.bash
-rosrun beginner_tutorials talker
+roslaunch beginner_tutorials Week10.launch
 ```
-
-## Terminal 3
+### Using roslaunch with frequency argument to change output message frequency 
 ```
-cd ~/catkin_ws/
 source ./devel/setup.bash
-rosrun beginner_tutorials listener
+roslaunch beginner_tutorials Week10.launch freq:= <input any frequency you like(integer)>
+```
+## Using service call to change the input string
+After following installation, compilation directions and launch file compilation instructions execute the following in a new terminal
+```
+source ./devel/setup.bash
+rosservice call /Changed_String "input: 'I changed the string'"
 ```
