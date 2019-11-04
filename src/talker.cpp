@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
     ROS_ERROR_STREAM("The frequency cannot be less than 0");
     //Set an arbitrary value of frequency to make it positive
     freq = 2;
-    ROS_WARN_STREAM(
+    ROS_INFO_STREAM(
         "The frequency value is changed so as to print out messages with a low frequency rate");
   }
   //Check whether the frequency is above 0 or not
