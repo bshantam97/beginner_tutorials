@@ -10,6 +10,8 @@
 #include <sstream>
 #include <beginner_tutorials/Change_String.h>
 
+std::string stringChange("My name is Shantam(Before string change)");
+
 /*
  * @brief: This is a boolean function that is used to change the string values
  * @param: srv::Request- The request part of the srv folder
@@ -18,7 +20,6 @@
 bool changeString(beginner_tutorials::Change_String::Request &request,
                   beginner_tutorials::Change_String::Response &response) {
   response.output = request.input;
-  std::string stringChange("My name is Shantam(Before string change)");
   stringChange = response.output;
   ROS_WARN_STREAM("The string is being changed due to a service call");
   return true;
@@ -33,11 +34,10 @@ int main(int argc, char** argv) {
   int freq = 20;
   //Initialize counter
   int count = 0;
-
   //Inputs the frequency if the argument counter is greater than zero
   if (argc > 0) {
     freq = atoi(argv[1]);
-    ROS_DEBUG_STREAM("The frequency has been set");
+    ROS_DEBUG_STREAM("The frequency has been set" << freq);
   }
   //Check for negative input frequency
   if (freq < 0) {
@@ -52,13 +52,14 @@ int main(int argc, char** argv) {
     ROS_FATAL_STREAM(
         "The frequency cannot be zero as then no messages will be printed");
   }
-
   ros::Publisher chatter_pub = nh_.advertise<std_msgs::String>("chatter", 1000);
+  ros::ServiceServer service = nh_.advertiseService("Changed_String",
+                                                    changeString);
   ros::Rate loop_rate(10);
   while (ros::ok()) {
     std_msgs::String msg;
     std::stringstream ss;
-    ss << "hello world " << count;
+    ss << stringChange << count;
     msg.data = ss.str();
     ROS_INFO_STREAM(msg.data.c_str() << count);
     chatter_pub.publish(msg);
