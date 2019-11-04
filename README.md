@@ -26,7 +26,7 @@ roslaunch beginner_tutorials Week10.launch
 source ./devel/setup.bash
 roslaunch beginner_tutorials Week10.launch freq:= <input any frequency you like(integer)>
 ```
-## Using service call to change the input string
+### Using service call to change the input string
 After following installation, compilation directions and launch file compilation instructions execute the following in a new terminal
 ```
 source ./devel/setup.bash
