@@ -1,4 +1,4 @@
-# ENPM808X- ROS Beginner tutorials (Publisher/Subscriber)
+# ENPM808X- ROS Beginner tutorials-ROS Services, Logging and Launch files
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](LICENSE.md)
 
 ## Dependencies
