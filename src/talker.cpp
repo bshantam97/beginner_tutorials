@@ -5,12 +5,10 @@
  */
 
 /*Include header files.....................................................*/
+#include <beginner_tutorials/Change_String.h>
+#include "changeString.hpp"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-#include <sstream>
-#include <beginner_tutorials/Change_String.h>
-
-std::string stringChange("My name is Shantam(Before string change)");
 
 /*
  * @brief: This is a boolean function that is used to change the string values
@@ -26,30 +24,37 @@ bool changeString(beginner_tutorials::Change_String::Request &request,
 }
 
 int main(int argc, char** argv) {
-  //The node initialization
+  // The node initialization
   ros::init(argc, argv, "talker");
-  //Creating an object for the nodeHandle class which is used as the access point for communcation
+  /*Creating an object for the nodeHandle class which is
+   used as the access point for communcation
+   */
   ros::NodeHandle nh_;
-  //message frequency
+  // message frequency
   int freq = 20;
-  //Initialize counter
+  // Initialize counter
   int count = 0;
-  //Inputs the frequency if the argument counter is greater than zero
+  // Inputs the frequency if the argument counter is greater than zero
   freq = atoi(argv[1]);
   ROS_DEBUG_STREAM("The frequency has been set" << freq);
-  //Check for negative input frequency
+  // Check for negative input frequency
   if (freq < 0) {
     ROS_ERROR_STREAM("The frequency cannot be less than 0");
-    //Set an arbitrary value of frequency to make it positive
+    // Set an arbitrary value of frequency to make it positive
     freq = 2;
     ROS_INFO_STREAM(
-        "The frequency value is changed so as to print out messages with a low frequency rate");
+        "The frequency value is changed so as to print out "
+                    "messages with a low frequency rate");
   }
-  //Check whether the frequency is above 0 or not
+  // Check whether the frequency is above 0 or not
   if (freq == 0) {
     ROS_FATAL_STREAM(
-        "The frequency cannot be zero as then no messages will be printed");
-    //As frequency is zero the system command will kill the nodes and force ros to shutdown
+        "The frequency cannot be zero as then no "
+                     "messages will be printed");
+    /**
+     * As frequency is zero the system command will
+     * kill the nodes and force ros to shutdown
+     */
     system("rosnode kill /talker");
     system("rosnode kill /listener");
     ros::shutdown();
@@ -57,7 +62,10 @@ int main(int argc, char** argv) {
   ros::Publisher chatter_pub = nh_.advertise<std_msgs::String>("chatter", 1000);
   ros::ServiceServer service = nh_.advertiseService("Changed_String",
                                                     changeString);
-  //In the loop_rate object the variable freq has been input to change the output frequency of the messasged being printed
+  /**
+   * In the loop_rate object the variable freq has been input
+   * to change the output frequency of the messasged being printed
+   */
   ros::Rate loop_rate(freq);
   while (ros::ok()) {
     std_msgs::String msg;
