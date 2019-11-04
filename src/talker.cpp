@@ -35,10 +35,8 @@ int main(int argc, char** argv) {
   //Initialize counter
   int count = 0;
   //Inputs the frequency if the argument counter is greater than zero
-  if (argc > 0) {
-    freq = atoi(argv[1]);
-    ROS_DEBUG_STREAM("The frequency has been set" << freq);
-  }
+  freq = atoi(argv[1]);
+  ROS_DEBUG_STREAM("The frequency has been set" << freq);
   //Check for negative input frequency
   if (freq < 0) {
     ROS_ERROR_STREAM("The frequency cannot be less than 0");
@@ -51,11 +49,16 @@ int main(int argc, char** argv) {
   if (freq == 0) {
     ROS_FATAL_STREAM(
         "The frequency cannot be zero as then no messages will be printed");
+    //As frequency is zero the system command will kill the nodes and force ros to shutdown
+    system("rosnode kill /talker");
+    system("rosnode kill /listener");
+    ros::shutdown();
   }
   ros::Publisher chatter_pub = nh_.advertise<std_msgs::String>("chatter", 1000);
   ros::ServiceServer service = nh_.advertiseService("Changed_String",
                                                     changeString);
-  ros::Rate loop_rate(10);
+  //In the loop_rate object the variable freq has been input to change the output frequency of the messasged being printed
+  ros::Rate loop_rate(freq);
   while (ros::ok()) {
     std_msgs::String msg;
     std::stringstream ss;
