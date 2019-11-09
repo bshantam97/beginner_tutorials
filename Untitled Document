@@ -1,0 +1,16 @@
+path:        record.bag
+version:     2.0
+duration:    29.0s
+start:       Nov 08 2019 23:34:28.03 (1573274068.03)
+end:         Nov 08 2019 23:34:56.99 (1573274096.99)
+size:        92.1 KB
+messages:    335
+compression: none [1/1 chunks]
+types:       rosgraph_msgs/Log  [acffd30cd6b6de30f120938c17c593fb]
+             std_msgs/String    [992ce8a1687cec8c8bd883ec73ca41d1]
+             tf2_msgs/TFMessage [94810edda583a504dfda3829e70d7eec]
+topics:      /chatter       58 msgs    : std_msgs/String   
+             /rosout       111 msgs    : rosgraph_msgs/Log  (3 connections)
+             /rosout_agg   108 msgs    : rosgraph_msgs/Log 
+             /tf            58 msgs    : tf2_msgs/TFMessage
+
