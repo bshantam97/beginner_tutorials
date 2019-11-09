@@ -3,6 +3,11 @@
 		name="freq"
 		default="20"
 	/>
+	
+	<arg
+		name="record"
+		default="disable"
+	/>
 
 	<node 
 		name="publisher"
@@ -18,5 +23,13 @@
 		type="listener"
 		output="screen"
 		launch-prefix="xterm -e"
+	/>
+	
+	<node
+		pkg="rosbag"
+		name="record"
+		type="record"
+		args="-a -O $(find beginner_tutorials)/results/record.bag"
+		if="$(eval record == 'enable')"
 	/>
 </launch>

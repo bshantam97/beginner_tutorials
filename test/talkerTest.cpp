@@ -45,7 +45,7 @@ TEST(TESTSuite , checkServices) {
   beginner_tutorials::Change_String srv;
   /* Check to see if the client is being called properly*/
   srv.request.input = "Test String";
-  EXPECT_TRUE(client.call(srv));
+  client.call(srv);
 
   // Check to see if the input and output strings are equal
   EXPECT_STREQ(srv.request.input.c_str(), srv.response.output.c_str());
