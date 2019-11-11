@@ -90,3 +90,22 @@ In your catkin workspace follow the commands given below to run the tests
 source ./devel/setup.bash
 rostest beginner_tutorials test.launch
 ```
+### Sample rostest output
+```
+... logging to /home/bshantam97/.ros/log/rostest-bshantam97-HP-Pavilion-x360-Convertible-7463.log
+[ROSUNIT] Outputting test results to /home/bshantam97/.ros/test_results/beginner_tutorials/rostest-test_test.xml
+[Testcase: testtalkerTest] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[beginner_tutorials.rosunit-talkerTest/checkServices][passed]
+[beginner_tutorials.rosunit-talkerTest/checkString][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 2
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /home/bshantam97/.ros/log/rostest-bshantam97-HP-Pavilion-x360-Convertible-7463.log
+```
