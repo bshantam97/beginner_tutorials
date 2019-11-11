@@ -24,9 +24,9 @@
 
 /*Include header files.....................................................*/
 #include <beginner_tutorials/Change_String.h>
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 #include "changeString.hpp"
-#include <tf/transform_broadcaster.h>
 #include "ros/ros.h"
 /*
  * @brief: This is a boolean function that is used to change the string values
@@ -95,7 +95,6 @@ int main(int argc, char** argv) {
   /*Transform object*/
   tf::Transform transform;
   while (ros::ok()) {
-
     /*Set the translational element*/
     transform.setOrigin(tf::Vector3(1, 1, 1));
 

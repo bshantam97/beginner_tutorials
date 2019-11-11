@@ -8,7 +8,8 @@
 #define INCLUDE_CHANGESTRING_HPP_
 
 #include<std_msgs/String.h>
+#include<string>
 
-std::string stringChange("My name is Shantam(Before string change)");
+extern std::string stringChange("My name is Shantam(Before string change)");
 
 #endif /*INCLUDE_CHANGESTRING_HPP_*/
