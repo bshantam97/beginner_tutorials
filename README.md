@@ -24,7 +24,8 @@ roslaunch beginner_tutorials Week10.launch
 ### Using roslaunch with frequency argument to change output message frequency 
 ```
 source ./devel/setup.bash
-roslaunch beginner_tutorials Week10.launch freq:= <input any frequency you like(integer)>
+roslaunch beginner_tutorials Week10.launch freq:=<input any frequency you like(integer)>
+example: roslaunch beginner_tutorials Week10.launch freq:=0
 ```
 ### Using service call to change the input string
 After following installation, compilation directions and launch file compilation instructions execute the following in a new terminal
