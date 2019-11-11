@@ -82,4 +82,7 @@ rosbag play record.bag
 ```
 After running the above commands your should see terminal 3 replaying the bag file and after running the listener node you should see it prints out the topic messages.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 18e3e4fdfcbf0ee8cbe147184f7d4665efd96b3d
