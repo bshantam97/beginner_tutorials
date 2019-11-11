@@ -29,8 +29,8 @@ add_dependencies(listener beginner_tutorials_generate_messages_cpp)
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  add_rostest_gtest(talkerTest test/talkerTest.cpp test/main.cpp test/test.launch)
+  add_rostest_gtest(talkerTest test/test.launch test/main.cpp test/talkerTest.cpp)
   target_link_libraries(talkerTest ${catkin_LIBRARIES})
-  add_dependencies(talkerTest talker ${catkin_EXPORTED_TARGETS})
+  add_dependencies(talker talkerTest ${catkin_EXPORTED_TARGETS})
  endif()
   

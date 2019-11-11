@@ -58,5 +58,5 @@ TEST(TESTSuite, checkString) {
   client.call(srv);
 
   // Check to see if the input and output strings are equal
-  EXPECT_STREQ("TEST String", srv.response.output.c_str());
+  EXPECT_STREQ("Test String", srv.response.output.c_str());
 }
