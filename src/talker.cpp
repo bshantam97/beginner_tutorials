@@ -53,7 +53,10 @@ int main(int argc, char** argv) {
   /*Initialize counter*/
   int count = 0;
   /*Inputs the frequency*/
-  freq = atoi(argv[1]);
+  if (argc > 1) {
+    // converts string argument to int
+    freq = atoi(argv[1]);
+  }
   ROS_DEBUG_STREAM("The frequency has been set" << freq);
   /*Check for negative input frequency*/
   if (freq < 0) {
@@ -66,8 +69,7 @@ int main(int argc, char** argv) {
   }
   /*Check whether the frequency is above 0 or not*/
   if (freq == 0) {
-    ROS_FATAL_STREAM(
-        "The frequency cannot be zero as then no "
+    ROS_FATAL_STREAM("The frequency cannot be zero as then no "
                      "messages will be printed");
     /**
      * As frequency is zero the system command will

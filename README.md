@@ -1,4 +1,4 @@
-# ENPM808X- ROS Beginner tutorials-ROS Services, Logging and Launch files
+# ENPM808X- ROS Beginner tutorials-ROS TF, Unit testing and Bag files
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](LICENSE.md)
 
 ## Dependencies
@@ -32,3 +32,54 @@ After following installation, compilation directions and launch file compilation
 source ./devel/setup.bash
 rosservice call /Changed_String "input: 'I changed the string'"
 ```
+## Running rqt_tf_tree and tf_echo and viewing frames
+
+After launching the Week10.launch file and setting the frequency follow the instructions below to use ROS tf_echo and rqt_tf_tree. 
+rqt_tf_tree provides a GUI for visualizing ROS tf frame tree and tf_echo prints the transforms in the terminal
+
+Open 2 new terminals
+### Terminal 1
+```
+source ./devel/setup.bash
+rosrun rqt_tf_tree rqt_tf_tree
+```
+### Terminal 2
+```
+source ./devel/setup.bash
+rosrun tf tf_echo world talk
+```
+### Terminal 3
+```
+source ./devel/setup.bash
+rosrun tf view_frames
+evince frames.pdf
+```
+## Using launch file to record data and save in a .bag file
+Open up a new terminal after closing the above terminals and run the following command to enable or disable creation and recording of data in a bag file. Use "record:=enable" to enable recording and "record:=disable" to disable recording.
+
+```
+source ./devel/setup.bash
+roslaunch beginner_tutorials Week10.launch freq:=2 record:=<enable/disable>
+```
+## Using rosbag to and replay topic messages
+Open up 3 new terminals for the demonstration of rosbag play
+### Terminal 1
+In your catkin workspace run the following
+```
+cd ~/catkin_ws/
+roscore
+```
+### Terminal 2
+```
+cd ~/catkin_ws/
+source ./devel/setup.bash
+rosrun beginner_tutorials listener
+```
+### Terminal 3
+```
+cd ~/catkin_ws/src/beginner_tutorials/beginner_tutorials/results
+rosbag play record.bag
+```
+After running the above commands your should see terminal 3 replaying the bag file and after running the listener node you should see it prints out the topic messages.
+
+

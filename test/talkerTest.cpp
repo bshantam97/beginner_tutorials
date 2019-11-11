@@ -26,7 +26,7 @@
 #include <ros/ros.h>
 #include <ros/service_client.h>
 #include <beginner_tutorials/Change_String.h>
-
+#include <std_msgs/String.h>
 /*
  * @brief: This test suite checks whether or not the service exists
  *         and if it exists checks whether the string is replaced by
@@ -40,13 +40,23 @@ TEST(TESTSuite , checkServices) {
   ros::NodeHandle nh;
   ros::ServiceClient client = nh
       .serviceClient<beginner_tutorials::Change_String>("Changed_String");
-  EXPECT_TRUE(client.waitForExistence(ros::Duration(3)));
+  EXPECT_TRUE(client.waitForExistence(ros::Duration(5)));
+}
 
+/*
+ * @brief: This test suite checks whether the output string has
+ *         been changed or not by the service call
+ * @return: none
+ */
+TEST(TESTSuite, checkString) {
+  ros::NodeHandle nh;
   beginner_tutorials::Change_String srv;
-  /* Check to see if the client is being called properly*/
+  ros::ServiceClient client = nh.serviceClient
+      < beginner_tutorials::Change_String > ("Changed_String");
+  /* client call */
   srv.request.input = "Test String";
   client.call(srv);
 
   // Check to see if the input and output strings are equal
-  EXPECT_STREQ(srv.request.input.c_str(), srv.response.output.c_str());
+  EXPECT_STREQ("TEST String", srv.response.output.c_str());
 }
